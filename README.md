@@ -1,4 +1,6 @@
-# haxe-partials
+# fork of haxe-partials for test dont use
+
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/FuzzyWuzzie/haxe-partials/blob/master/LICENSE)
 
 A simple macro library for writing classes as partials (splitting a single class into multiple source files). In the context of this library, partials are the same as [C# partials](https://msdn.microsoft.com/en-CA/library/wa80x488.aspx), and really just allow for a bit more organization.
