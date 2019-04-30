@@ -15,7 +15,7 @@ import haxe.ds.StringMap;
  *
  * ```haxe
  * package my.package;
- * 
+ *
  * @:partials(my.package.PartialDefinitionA, my.package.partials.PartialDefinitionB)
  * class MyClassThatWouldBeReallyLongWithoutPartials implements partials.Partial {
  *     public function new() {
@@ -25,20 +25,20 @@ import haxe.ds.StringMap;
  *     }
  * }
  * ```
- * 
+ *
  * ```haxe
  * package my.package;
- * 
+ *
  * class PartialDefinitionA implements partials.Partial {
  *     public function foo() {
  *         trace("FOO!");
  *     }
  * }
  * ```
- * 
+ *
  * ```haxe
  * package my.package.partials;
- * 
+ *
  * class PartialDefinitionB implements partials.Partial {
  *     public function bar() {
  *         trace("BAR!");
@@ -47,7 +47,7 @@ import haxe.ds.StringMap;
  * ```
  *
  * This would output:
- * 
+ *
  * ```
  * My partials are here!
  * FOO!
@@ -55,7 +55,8 @@ import haxe.ds.StringMap;
  * ```
  */
 class Partials {
-    private static var partials:StringMap<Array<Field>> = new StringMap<Array<Field>>();
+    //private static var partials:StringMap<Array<Field>> = new StringMap<Array<Field>>();
+    private static var partials = new PCache();
 
     private static function getModuleName(e:Expr):String {
         return switch(e.expr) {
@@ -115,7 +116,7 @@ class Partials {
             partials.set(Context.getLocalModule(), localFields);
 
             // and trash it
-            Compiler.exclude(Context.getLocalModule());
+            //Compiler.exclude(Context.getLocalModule());
             return new Array<Field>();
         }
 
